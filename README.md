@@ -20,10 +20,3 @@ Trois « agents », chacun défini par une interface et branché dans `AppContai
 ./gradlew :app:testDebugUnitTest   # tests du score, de la détection et du JSON
 ./gradlew :app:assembleDebug
 ```
-
-Renseigner `sdk.dir` dans `local.properties` (ignoré par git).
-
-## À valider / à faire
-
-- Table d'exclusions entre combinaisons (`ComboDefinition.excludes`) : non imprimée sur les mémos, à vérifier avec le règlement officiel.
-- Modèle de reconnaissance des tuiles (ex. détecteur TFLite 42 classes) à entraîner et brancher.
