@@ -140,7 +140,7 @@ fun ScanScreen(c: AppContainer, onBack: () -> Unit, onResult: (List<String>) -> 
                 Column(Modifier.padding(horizontal = 16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                     Text("${hand.tiles.size} tuiles et ${hand.flowers.size} fleur(s) reconnues", style = MaterialTheme.typography.titleSmall)
                     FlowRow(horizontalArrangement = Arrangement.spacedBy(3.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                        (hand.tiles + hand.flowers).forEach { TileView(it, width = 28.dp) }
+                        (hand.tiles + hand.flowers).forEach { TileView(it, width = 34.dp) }
                     }
                     if (hand.uncertain.isNotEmpty()) {
                         Text("${hand.uncertain.size} tuile(s) incertaine(s) : vérifiez-les ensuite.", style = MaterialTheme.typography.bodySmall)

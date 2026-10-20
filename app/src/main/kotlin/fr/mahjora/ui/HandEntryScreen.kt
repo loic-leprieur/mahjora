@@ -197,7 +197,7 @@ fun HandEntryScreen(
             SectionTitle("Figures déclarées")
             declared.forEachIndexed { i, m ->
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {
-                    m.tiles.forEach { TileView(it, width = 28.dp) }
+                    m.tiles.forEach { TileView(it, width = 34.dp) }
                     Text(meldLabel(m), Modifier.weight(1f))
                     IconButton({ declared.removeAt(i) }) { Icon(Icons.Filled.Close, "Retirer") }
                 }

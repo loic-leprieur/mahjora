@@ -31,7 +31,17 @@ private val Green = Color(0xFF0B6B3A)
 @Composable
 fun MahjoraTheme(content: @Composable () -> Unit) {
     MaterialTheme(
-        colorScheme = lightColorScheme(primary = Green, secondary = Color(0xFF7FB23A)),
+        colorScheme = lightColorScheme(
+            primary = Green,
+            onPrimary = Color.White,
+            primaryContainer = Color(0xFFC8E6C9),
+            onPrimaryContainer = Color(0xFF00391C),
+            secondary = Color(0xFF4F7A28),
+            secondaryContainer = Color(0xFFDDEBC8),
+            onSecondaryContainer = Color(0xFF1B3300),
+            background = Color(0xFFF7FBF4),
+            surface = Color(0xFFF7FBF4),
+        ),
         content = content,
     )
 }
@@ -63,7 +73,7 @@ private fun Tile.face(): Pair<String, String> = when (suit) {
 fun TileView(
     tile: Tile,
     modifier: Modifier = Modifier,
-    width: Dp = 34.dp,
+    width: Dp = 40.dp,
     selected: Boolean = false,
     onClick: (() -> Unit)? = null,
 ) {
@@ -71,7 +81,7 @@ fun TileView(
     val color = tile.color()
     Surface(
         modifier = modifier
-            .size(width, width * 1.35f)
+            .size(width, width * 1.45f)
             .let { if (onClick != null) it.clickable(onClick = onClick) else it },
         shape = RoundedCornerShape(5.dp),
         color = if (selected) Color(0xFFFFF3C4) else Color(0xFFFAF7EE),
@@ -79,15 +89,15 @@ fun TileView(
         shadowElevation = 1.dp,
     ) {
         Column(Modifier, horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
-            Text(big, color = color, fontWeight = FontWeight.Bold, fontSize = (width.value * 0.5f).sp)
-            if (small.isNotEmpty()) Text(small, color = color, fontSize = (width.value * 0.3f).sp)
+            Text(big, color = color, fontWeight = FontWeight.Bold, fontSize = (width.value * 0.6f).sp, lineHeight = (width.value * 0.65f).sp)
+            if (small.isNotEmpty()) Text(small, color = color, fontWeight = FontWeight.Bold, fontSize = (width.value * 0.42f).sp, lineHeight = (width.value * 0.45f).sp)
         }
     }
 }
 
 /** All 34 playable tiles; [onPick] is called when one is tapped. */
 @Composable
-fun TilePalette(onPick: (Tile) -> Unit, modifier: Modifier = Modifier, tileWidth: Dp = 32.dp) {
+fun TilePalette(onPick: (Tile) -> Unit, modifier: Modifier = Modifier, tileWidth: Dp = 38.dp) {
     Column(modifier, verticalArrangement = Arrangement.spacedBy(4.dp)) {
         listOf(Suit.CIRCLES, Suit.BAMBOOS, Suit.CHARACTERS).forEach { s ->
             Row(horizontalArrangement = Arrangement.spacedBy(3.dp)) {

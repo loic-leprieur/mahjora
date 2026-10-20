@@ -20,16 +20,8 @@ fun MahjoraNav(c: AppContainer) {
         composable("home") {
             HomeScreen(
                 c,
-                onNewGame = { nav.navigate("newGame") },
                 onOpen = { nav.navigate("game/$it") },
                 onRules = { nav.navigate("rules") },
-            )
-        }
-        composable("newGame") {
-            NewGameScreen(
-                c,
-                onBack = { nav.popBackStack() },
-                onCreated = { id -> nav.navigate("game/$id") { popUpTo("home") } },
             )
         }
         composable("game/{id}", arguments = gameArg) { e ->
